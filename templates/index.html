@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>SSC Result Checker</title>
+    <meta name="description" content="Check your SSC Result 2025 online. Officially powered by Bangladesh Education Board data.">
+    <meta name="keywords" content="SSC Result, Education Board Bangladesh, Result 2025, SSC Exam Result">
+    <meta name="author" content="Fahim Ahmed">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="index, follow">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f4f6f9;
+        }
+        header {
+            background: linear-gradient(to right, #e60000, #008000);
+        }
+        .profile-pic {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-left: 10px;
+        }
+    </style>
+</head>
+<body>
+
+   <!-- Header -->
+<header class="text-white text-center py-4">
+    <h2 class="mb-1">SSC Result Checking {{ current_year }}</h2>
+    
+    <h6 class="mt-2 fw-light" style="max-width: 800px; margin: 0 auto;">
+        This website fetches SSC result data directly from the official Bangladesh Education Board website 
+        (<a href="http://www.educationboardresults.gov.bd/" target="_blank" class="text-warning text-decoration-underline">educationboardresults.gov.bd</a>)
+        and operates under the data policies of the Ministry of Education, Bangladesh.
+    </h6>
+</header>
+
+
+    <!-- Form Section -->
+    <section class="container my-5">
+        <div class="card shadow p-4">
+            <h3 class="text-center mb-4">Check Your SSC Result</h3>
+            <form method="POST">
+                <input type="hidden" name="exam" value="ssc">
+
+                <div class="mb-3">
+                    <label class="form-label">Year</label>
+                    <select name="year" class="form-select" required>
+                        <option value="">Select Year</option>
+                        {% for y in range(current_year, 1990, -1) %}
+                        <option value="{{ y }}">{{ y }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Board</label>
+                    <select name="board" class="form-select" required>
+                        <option value="">Select Board</option>
+                        <option value="barisal">Barisal</option>
+                        <option value="chittagong">Chittagong</option>
+                        <option value="comilla">Comilla</option>
+                        <option value="dhaka">Dhaka</option>
+                        <option value="dinajpur">Dinajpur</option>
+                        <option value="jessore">Jessore</option>
+                        <option value="mymensingh">Mymensingh</option>
+                        <option value="rajshahi">Rajshahi</option>
+                        <option value="sylhet">Sylhet</option>
+                        <option value="madrasah">Madrasah</option>
+                        <option value="technical">Technical</option>
+                        <option value="dibs">DIBS(Dhaka)</option>
+                    </select>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Roll</label>
+                    <input type="text" name="roll" class="form-control" required>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Registration No</label>
+                    <input type="text" name="reg" class="form-control" required>
+                </div>
+
+                <div class="d-grid">
+                    <input type="submit" value="Get Result" class="btn btn-success">
+                </div>
+            </form>
+        </div>
+    </section>
+
+   <!-- Footer -->
+<footer class="text-center text-muted py-4 px-3 mt-5" style="background-color: #f8f9fa;">
+    <p style="font-style: italic; font-size: 0.95rem; max-width: 800px; margin: auto;">
+        “If your result brings joy — smile, for you're moving ahead. And if it doesn't — remember, the race is far from over.
+        After all, if a backbencher can create this, you're more than capable of conquering your path.”
+    </p>
+    <hr style="max-width: 300px; margin: 10px auto;">
+    <h5 class="mt-3 d-flex justify-content-center align-items-center">
+        Developed & Designed by Fahim Ahmed
+        <img src="/static/fahim.jpg" alt="Fahim Ahmed" class="profile-pic">
+    </h5>
+</footer>
+
+</body>
+</html>
